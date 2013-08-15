@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+set -e
+
+if [ -S .zeus.sock ]; then
+  zeus cucumber $*
+else
+  $HOME/bin/run_with_env_file "bundle exec cucumber $tags $*"
+fi
